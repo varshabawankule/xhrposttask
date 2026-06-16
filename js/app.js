@@ -137,6 +137,14 @@ function onEdit(ele) {
       bodyControl.value = editObj.body;
       userIdControl.value = editObj.userId;
 
+       window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+      
+
+
       updatebtn.classList.remove("d-none");
       addbtn.classList.add("d-none");
       spinner.classList.add("d-none");
@@ -145,6 +153,7 @@ function onEdit(ele) {
     }
   };
 }
+
 
 function onUpdate() {
   let UPDATE_ID = localStorage.getItem("EDIT_ID");
@@ -177,6 +186,25 @@ function onUpdate() {
 
       h3.innerText = UPDATED_OBJ.title,
       p.innerText = UPDATED_OBJ.body
+
+
+      col.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+
+
+col.classList.add("border", "border-success", "border-3");
+
+setTimeout(() => {
+  col.classList.remove("border", "border-success", "border-3");
+}, 2000);
+
+
+
+
+
 
       updatebtn.classList.add("d-none");
       addbtn.classList.remove("d-none");
