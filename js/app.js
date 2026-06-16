@@ -3,6 +3,8 @@ const cl = console.log;
 const BASE_URL = `https://jsonplaceholder.typicode.com`;
 const POST_URL = `${BASE_URL}/posts`;
 
+
+const spinner = document.getElementById('spinner')
 const formID = document.getElementById("formID");
 const titleControl = document.getElementById("title");
 const bodyControl = document.getElementById("body");
@@ -156,7 +158,7 @@ function onUpdate() {
   };
   cl(UPDATED_OBJ);
 
-  let UPDATE_URL = `${BASE_URL}/posts/${UPDATE_URL}`;
+  let UPDATE_URL = `${BASE_URL}/posts/${UPDATE_ID}`;
 
   spinner.classList.remove("d-none");
   let xhr = new XMLHttpRequest();
@@ -167,17 +169,19 @@ function onUpdate() {
     if (xhr.status >= 200 && xhr.status <= 299) {
       let res = JSON.parse(xhr.response);
       cl(res);
-      formID.reset();
+     
 
-      let col = document.getElementById("UPDATE_ID");
-      let h3 = document.querySelector("card-header h3");
-      let p = document.querySelector("card-body p");
+      let col = document.getElementById(UPDATE_ID)
+      let h3 = col.querySelector(".card-header h3")
+      let p = col.querySelector(".card-body p");
 
-      h3.innerHTML = UPDATED_OBJ.title;
-      p.innerHTML = UPDATED_OBJ.body;
-formID.reset()
+      h3.innerText = UPDATED_OBJ.title,
+      p.innerText = UPDATED_OBJ.body
+
       updatebtn.classList.add("d-none");
       addbtn.classList.remove("d-none");
+
+      formID.reset()
 
       spinner.classList.add("d-none");
     } else {

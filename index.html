@@ -26,12 +26,12 @@
               <form id="formID">
                 <div class="form-group">
                   <label for="title" class="font-weight-bold">Title*</label>
-                  <input type="text" id="title" class="form-control" />
+                  <input type="text" id="title" required class="form-control" />
                 </div>
 
                 <div class="form-group">
                   <label for="body" class="font-weight-bold">Body*</label>
-                  <textarea rows="4" id="body" class="form-control"></textarea>
+                  <textarea rows="4" id="body" required class="form-control"></textarea>
                 </div>
                 <div class="form-group">
                   <label for="userId" class="font-weight-bold">UserId*</label>
@@ -56,9 +56,10 @@
                   Add Post
                 </button>
                 <button
+                type="button"
                   id="updatebtn"
-                  class="btn btn-sm btn-block btn-outline-primary d-none"
-                >
+                  class="btn btn-sm btn-block btn-outline-primary d-none">
+                
                   Update Post
                 </button>
               </form>
