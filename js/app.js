@@ -143,7 +143,7 @@ function onEdit(ele) {
     });
 
       
-
+editBanner.classList.remove("d-none");
 
       updatebtn.classList.remove("d-none");
       addbtn.classList.add("d-none");
@@ -194,11 +194,14 @@ function onUpdate() {
     });
 
 
+editBanner.classList.add("d-none");
 
 col.classList.add("border", "border-success", "border-3");
 
 setTimeout(() => {
   col.classList.remove("border", "border-success", "border-3");
+
+
 }, 2000);
 
 
