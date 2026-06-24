@@ -12,6 +12,14 @@ const addbtn = document.getElementById("addbtn");
 const updatebtn = document.getElementById("updatebtn");
 const userIdControl = document.getElementById("userId");
 
+
+function tooltip(){
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+}
+
+
 function snackBar(msg, icon) {
   Swal.fire({
     title: msg,
@@ -27,7 +35,7 @@ function createCard(arr) {
     result += `
         <div class="col-md-4 mb-3" id=${post.id}>
                 <div class="card h-100">
-                <div class="card-header">
+                <div class="card-header" data-toggle="tooltip" data-placement="top" title="${post.title}">
                  <h3>${post.title}</h3>
                 </div>
             <div class="card-body">
@@ -48,6 +56,7 @@ function createCard(arr) {
 
   const postContainer = document.getElementById("postContainer");
   postContainer.innerHTML = result;
+  tooltip()
 }
 let postArr = [];
 function fetchPost() {
@@ -92,7 +101,7 @@ function onPostSubmit(eve) {
       col.id = res.id;
       col.innerHTML = `
          <div class="card h-100">
-                <div class="card-header">
+                <div class="card-header" data-toggle="tooltip" data-placement="top" title="${postObj.title}">
                  <h3>${postObj.title}</h3>
                 </div>
             <div class="card-body">
@@ -112,6 +121,7 @@ function onPostSubmit(eve) {
       spinner.classList.add("d-none");
     }
   };
+  tooltip()
 }
 
 function onEdit(ele) {
@@ -148,6 +158,10 @@ editBanner.classList.remove("d-none");
       updatebtn.classList.remove("d-none");
       addbtn.classList.add("d-none");
       spinner.classList.add("d-none");
+
+      formID
+
+
     } else {
       spinner.classList.add("d-none");
     }
